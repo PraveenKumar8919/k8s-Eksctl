@@ -6,12 +6,12 @@ terraform {
     }
   }
 
-  backend "s3" {
-    bucket = "ppattiri-state-dev"
-    key    = "minikube"
-    region = "us-east-1"
-    dynamodb_table = "ppattiri-locking-dev"
-  }
+    backend "s3" {
+      bucket = "ppattirik-remote-bucket"
+      key    = "eksctl"
+      region = "us-east-1"
+      dynamodb_table = "dynamodb_table"
+    }
 }
 
 provider "aws" {
