@@ -64,3 +64,8 @@ VALIDATE $? "eksctl installation"
 sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
 sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
 VALIDATE $? "kubens installation"
+
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+VALIDATE $? "Helm installation"
+helm version
+VALIDATE $? "Helm version"
