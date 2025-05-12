@@ -69,3 +69,16 @@ curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
 VALIDATE $? "Helm installation"
 helm version
 VALIDATE $? "Helm version"
+
+sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
+sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
+VALIDATE $? "kubens installation"
+
+#install k9s
+curl -sS https://webinstall.dev/k9s | bash
+VALIDATE $? "k9s installation"
+
+#install kube-metrics-server
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+VALIDATE $? "kube-metrics-server installation"
+## need to add helm repo and aws-csi-driver to install csi driver.
