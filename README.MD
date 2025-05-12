@@ -9,7 +9,16 @@ This repository provides scripts to set up a workstation with the following tool
 ## Prerequisites  
 Ensure the following are installed on your system before running the scripts:  
 - **Git**: To clone this repository.  
-- **curl** or **wget**: For downloading dependencies.  
+- **curl** or **wget**: For downloading dependencies. 
+
+## helm  
+- 1. EBS drivers
+- 2. add helm repo --> kubernetes resource files
+- 3. helm repo add aws-ebs-csi-driver https://kubernetes-sigs.github.io/aws-ebs-csi-driver
+- 4. helm repo update
+- 5. helm upgrade --install aws-ebs-csi-driver --namespace kube-system aws-ebs-csi-driver/     aws-ebs-csi-driver
+- 6.  Ec2 role access - provide ebscsipolicy access to IAM role used in Ec2 instances
+- 7. create a namespace then create/install storage class
 
 ## Installation Steps  
 1. Clone this repository:  
